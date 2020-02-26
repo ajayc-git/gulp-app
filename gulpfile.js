@@ -15,20 +15,24 @@ gulp.task("css", done => {
 });
 
 //Javascript task
-gulp.task("js", async function() {
+gulp.task("js", function(done) {
     gulp.src([
         "./node_modules/jquery/dist/jquery.min.js",
         "./src/js/user.js",
         "./src/js/admin.js"
     ])
-    .pipe(plugins.babel({
-        presets: ['es2015']
-    }))
+    //.pipe(plugins.babel({
+    //    presets: ["es2015"]
+    //}))
     .pipe(plugins.concat("scripts.js"))
     .pipe(plugins.uglify())
     .pipe(gulp.dest("./dist/js"));
+    done();
 });
 
-gulp.task("default", async function() {
-    console.log("Look at the gulp console");
+gulp.task("watch", function() {
+    gulp.watch('./src/scss/*.scss',gulp.series('css'));
+    gulp.watch('./src/js/*.js',gulp.series('js'));
 });
+
+gulp.task("default", gulp.series('css','js','watch'));
