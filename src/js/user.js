@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $("a").click(function(e) {
+$(document).ready(() => {
+    $("a").click((e) => {
         alert("User clicked on a link!")
         e.preventDefault();
     })

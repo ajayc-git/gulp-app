@@ -21,9 +21,13 @@ gulp.task("js", async function() {
         "./src/js/user.js",
         "./src/js/admin.js"
     ])
+    .pipe(plugins.babel({
+        presets: ['es2015']
+    }))
+    .pipe(plugins.concat("scripts.js"))
     .pipe(plugins.uglify())
     .pipe(gulp.dest("./dist/js"));
-})
+});
 
 gulp.task("default", async function() {
     console.log("Look at the gulp console");
