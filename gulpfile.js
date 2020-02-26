@@ -14,6 +14,17 @@ gulp.task("css", done => {
     done();
 });
 
+//Javascript task
+gulp.task("js", async function() {
+    gulp.src([
+        "./node_modules/jquery/dist/jquery.min.js",
+        "./src/js/user.js",
+        "./src/js/admin.js"
+    ])
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest("./dist/js"));
+})
+
 gulp.task("default", async function() {
     console.log("Look at the gulp console");
 });
