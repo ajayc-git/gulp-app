@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $("a").click(function (e) {
-        alert("User clicked on a link! Learn Gulp")
+    $("p").click(function (e) {
+        alert("User clicked on a paragraph! Learn Gulp")
         e.preventDefault();
     })
 });

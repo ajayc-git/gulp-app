@@ -1,9 +1,10 @@
-$primaryColor : "red";
+$primaryColor : #6b0505;
 
 body {
-    background-color: $primaryColor;
+    background: $primaryColor;
+    font-family: Tahoma, sans-serif;
 
-    p {
+    h1,h2,p {
         background: #ffffff;
         border-radius: 4px;
         padding: 20px;
