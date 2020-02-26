@@ -1,0 +1,11 @@
+$primaryColor : "red";
+
+body {
+    background-color: $primaryColor;
+
+    p {
+        background: #ffffff;
+        border-radius: 4px;
+        padding: 20px;
+    }
+}
