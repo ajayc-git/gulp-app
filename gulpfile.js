@@ -1,18 +1,15 @@
 var gulp = require("gulp"),
-    sass = require("gulp-sass"),
-    autoPrefixer = require("gulp-autoprefixer"),
-    cssMin = require("gulp-cssmin"),
-    sourceMaps = require("gulp-sourcemaps");
+    plugins = require("gulp-load-plugins")();
 
-gulp.task("css", function(done) {
+gulp.task("css", done => {
     //Compile sass
     //Output file to a dist folder
     gulp.src(["./src/scss/main.scss"])
-    .pipe(sourceMaps.init())
-    .pipe(sass().on("error",sass.logError))
-    .pipe(cssMin())
-    .pipe(autoPrefixer())
-    .pipe(sourceMaps.write())
+    .pipe(plugins.sourcemaps.init())
+    .pipe(plugins.sass().on("error",plugins.sass.logError))
+    .pipe(plugins.cssmin())
+    .pipe(plugins.autoprefixer())
+    .pipe(plugins.sourcemaps.write())
     .pipe(gulp.dest("./dist/css"));
     done();
 });
